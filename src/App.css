@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --oro: #f2a900;
+  --oro-hover: #ffc107;
+  --oscuro-fondo: #1a1a1a;
+  --oscuro-card: #2d2d2d;
+  --gris-borde: #444;
+  --blanco: #ffffff;
+}
+
+body {
+  background-color: var(--oscuro-fondo);
+  color: var(--blanco);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.cuerpo-pagina {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 300px; 
+}
+
+.logo-principal{
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+}
+
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+nav {
+  background-color: transparent; 
+}
+
+.menu-principal {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu-principal a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu-principal a:hover {
+  color: var(--oro);
+}
+
+article, .card-conversion, .elemento-twit {
+  background: var(--oscuro-card);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid var(--gris-borde);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.formulario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--gris-borde);
+  background: #333;
+  color: white;
+  margin-top: 5px;
+}
+
+button, .btn-principal {
+  background-color: var(--oro);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: var(--oro-hover);
+  transform: translateY(-2px);
+}
+
+.espacio-twits {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.elemento-twit {
+  height: auto; 
+  margin: 0;
+}
