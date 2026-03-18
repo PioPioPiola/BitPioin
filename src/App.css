@@ -20,26 +20,58 @@ body {
 }
 
 .cuerpo-pagina {
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 180vh;
+  margin: 0 15px;
   padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 300px; 
+}
+
+.informacion-inicio {
+display: grid;
+grid-template-columns: 9fr 1fr;
+gap: 30px;
 }
 
 .logo-principal{
-    width: 40px; 
-    height: 40px;
+    width: 60px; 
+    height: 60px;
     border-radius: 50%;
 }
 
-header {
-  grid-column: 1 / -1;
+.brand {
   display: flex;
+  justify-content:space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+.brand-logo {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 20px 20px;
+  gap: 20px;
+}
+
+.menu-principal {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding: 15px 0;
   border-bottom: 1px solid var(--gris-borde);
+}
+
+.header-botones{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+.header-botones button {
+  width: 150px;
 }
 
 main {
@@ -52,20 +84,21 @@ nav {
   background-color: transparent; 
 }
 
-.menu-principal {
+.menu-principal-sitios {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 30px;
+  padding: 15px 20px;
 }
 
-.menu-principal a {
+.menu-principal-sitios a {
   color: var(--blanco);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.menu-principal a:hover {
+.menu-principal-sitios a:hover {
   color: var(--oro);
 }
 
@@ -75,6 +108,13 @@ article, .card-conversion, .elemento-twit {
   border-radius: 12px;
   border: 1px solid var(--gris-borde);
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.informacion-conversiones{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
+  gap: 30px;
 }
 
 .formulario-grid {
@@ -106,7 +146,7 @@ button, .btn-principal {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
-  width: 100%;
+  width: 80%
 }
 
 button:hover {
@@ -124,4 +164,173 @@ button:hover {
 .elemento-twit {
   height: auto; 
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  width: 150vh;
+  max-height: 150px;
+  overflow:hidden;
+}
+
+.elemento-twit span {
+  overflow:hidden;
+  word-wrap:break-word;
+  text-overflow: ellipsis;
+}
+
+.video-inicio {
+    position: relative;
+    width: 145vh;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    transform: scale(1.05);
+    overflow: hidden;
+    background: #000; 
+    margin-top: 30px;
+    margin-left: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    
+    padding: 0 10%;
+}
+
+.icono{
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.icono-eliminar:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: #ccc 0 0 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Otros estilos */
+
+.card-carrito, .pop-up-carrito{
+  background-color: white;
+  Color: black;
+  border-radius: 10px;
+  border: none;
+  width: 500px;
+  padding: 20px;
+}
+
+.card-carrito h2, .total-productos{
+  font-weight: bold;
+  padding: 10px 0;
+  margin-top: 5px;;
+}
+
+.card-carrito table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.card-carrito th{
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-carrito td{
+  border-bottom: 1px solid #ccc;
+  padding: 8px 5px;
+}
+
+.card-carrito button{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.rojo, .verde, .gris{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.gris{
+  background-color: gray;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.rojo{
+  background-color: red;
+  box-shadow: 0 4px 15px rgba(206, 43, 43, 0.3);
+}
+
+.verde{
+  background-color: green;
+  box-shadow: 0 4px 15px rgba(40, 192, 98, 0.3);
+}
+
+.semaforo{
+  background-color: #2d2d2d;
+  border: 1px solid white;
+  border-radius: 12px;
+  padding: 20px 10px;
+}
+
+.contenedor-semaforo{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
 }
