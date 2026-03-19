@@ -1,10 +1,11 @@
 import "./App.css";
 import { Inicio } from "./components/Inicio";
+import { ToDo } from "./components/ToDo";
 
 function App() {
   return (
     <>
-      <Inicio />
+      <ToDo />
     </>
   );
 }

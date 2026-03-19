@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: var(--oscuro-fondo);
+  background-color: rgb(43, 54, 102);
   color: var(--blanco);
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
@@ -216,15 +216,83 @@ button:hover {
 }
 
 
+.card{
+  border-radius: 10px;
+  padding: 25px;
+  border: 0.2px solid #ccc;
+  width: 700px;
+  margin-bottom: 20px;
+}
 
+.tarea-to-do {
+  width: 650px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  gap: 15px;
+}
 
+.contenido-tarea-to-do{
+  display: flex;
+  gap: 20px;
+}
 
+.tipo-tarea-to-do {
+  background-color: rgb(153, 55, 209);
+  color: white;
+  border-radius: 8px;
+  padding: 2px 10px;
+}
 
+.contenedor-to-do{
+  background-color: #1a1a1a;
+  width: 750px;
+}
 
+.filtro-to-do, .select-to-do select, .caja-texto-to-do, .tarea-to-do{
+  background-color: black;
+}
 
+.acciones-to-do{
+  background-color: #333232;
+}
 
+.filtro-to-do, .acciones-to-do, .tarea-to-do{
+  display: flex;
+  gap: 20px;
+}
 
+.acciones-to-do input {
+  width: 400px;
+  height: 40px;
+}
 
+.acciones-to-do select, .acciones-to-do button, .filtro-to-do select{
+  width: 130px;
+  height: 40px;
+}
+
+.objetivo-logrado {
+  background-color: rgb(50, 163, 50);
+  color: #000;
+  border-radius: 10px;
+  padding: 25px;
+  width: 650px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px 5px #064b0b;
+  transition: all 0.5s ease;
+}
+
+.acciones-to-do button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: rgb(153, 55, 209);
+}
 
 
 
