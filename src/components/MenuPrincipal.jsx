@@ -1,12 +1,14 @@
+import { Link, NavLink } from "react-router-dom";
 
 export function MenuPrincipal(){
     return (
     <section>
-            <nav classname="menu-principal">
+            <nav className="menu-principal">
                 <ul className="menu-principal-sitios">
-                    <li><a href="">Inicio</a></li>
-                    <li><a href="#conversiones">Conversiones</a></li>
-                    <li><a href="#historico-conversiones">Históricos</a></li>
+                    <li><NavLink to ="/">Inicio</NavLink></li>
+                    <li><NavLink to ="/">Conversiones</NavLink></li>
+                    <li><NavLink to ="/">Histórico de Conversiones</NavLink></li>
+                    <li><NavLink to ="/Productos">Productos</NavLink></li>
                 </ul>
             </nav>
         </section>
