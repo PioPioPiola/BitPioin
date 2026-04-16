@@ -1,11 +1,11 @@
 import { ShoppingCart } from "lucide-react"
 import { Link } from "react-router-dom";
 import { DetalleProducto } from "./DetalleProducto";
-import { useCarrito } from "../components/CartContext";
+import { useCarrito } from "./CartContext";
+import { Producto } from "../types/Interfaces";
 
-export function CardProducto({producto}){
+export function CardProducto({ producto }: { producto: Producto }) {
     const { añadirAlCarrito } = useCarrito();
-
     return(
         <div className="card-producto">
             <img src={producto.image} alt={producto.title} className="imagen-producto"></img>

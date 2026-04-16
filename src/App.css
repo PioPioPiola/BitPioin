@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: rgb(43, 54, 102);
+  background-color: var(--oscuro-fondo);
   color: var(--blanco);
   font-family: 'Segoe UI', Roboto, sans-serif;
 }

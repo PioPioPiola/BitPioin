@@ -1,10 +1,14 @@
 import React from 'react';
-import { useCarrito } from '../components/CartContext';
+import { useCarrito } from './CartContext';
+import { ItemCarrito } from '../types/Interfaces';
 
 export const VistaCarrito = () => {
-    const { carrito } = useCarrito();
+    const { carrito, limpiarCarrito } = useCarrito();
+//TO DO: Usar pick para itemCarrito en vez de heredar de Producto
 
-    const totalDolares = carrito.reduce((acumulador, item) => acumulador + item.price, 0);
+    const totalDolares = carrito.reduce((acumulador: number, item: ItemCarrito) => 
+        acumulador + (item.price * item.cantidad), 0
+    );
 
     if (carrito.length === 0) {
         return <p>No hay productos en el carrito</p>;
@@ -16,7 +20,7 @@ export const VistaCarrito = () => {
             <ul>
                 {carrito.map((item, indice) => (
                     <li key={indice}>
-                        {item.name} — <strong>${item.price.toFixed(2)}</strong>
+                        {item.title} — <strong>${item.price.toFixed(2)}</strong>
                     </li>
                 ))}
             </ul>

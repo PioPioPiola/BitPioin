@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url) => {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+export const useFetch = <T>(url:string) => {
+    const [data, setData] = useState<T | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
 
@@ -22,7 +22,8 @@ export const useFetch = (url) => {
                 setData(result);
             }
             catch (error) {
-                setError(error);
+                const mensajeError = error instanceof Error ? error.message : "Error desconocido";
+                setError(mensajeError);
             }
             finally {
                 setLoading(false);
