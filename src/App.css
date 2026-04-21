@@ -526,3 +526,10 @@ button:hover {
   gap: 10px;
   margin-bottom: 30px;
 }
+
+.saldo-actual-detalle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

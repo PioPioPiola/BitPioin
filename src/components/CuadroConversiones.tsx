@@ -39,10 +39,6 @@ export function CuadroConversiones() {
 
     return (
         <section className="card-conversion">
-            <div className="banner-overlay">
-                <p>Cash: ${cash.toLocaleString()} USD | Saldo: {saldoBTC.toFixed(8)} BTC</p>
-            </div>
-
             <h2>Operar Mercado</h2>
             <div className="formulario-grid">
                 <div className="full-width">

@@ -2,14 +2,14 @@ import "./App.css";
 import React from "react";
 import { Inicio } from "./components/Inicio";
 import { Login } from "./components/Login";
-import { ToDo } from "./components/ToDo";
+import { ToDo } from "./components/ToDo.jsx";
 import { Productos } from "./components/Productos";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ProveedorCarrito } from "./components/CartContext";
-import { DetalleProducto } from "./components/DetalleProducto";
-import { VistaSinPermiso } from "./components/VistaSinPermiso";
-import { VistaCarrito } from "./components/VistaCarrito";
-import { Navbar } from "./components/Navbar";
+import { ProveedorCarrito } from "./components/CartContext.js";
+import { DetalleProducto } from "./components/DetalleProducto.jsx";
+import { VistaSinPermiso } from "./components/VistaSinPermiso.jsx";
+import { VistaCarrito } from "./components/VistaCarrito.js";
+import { Navbar } from "./components/Navbar.jsx";
 
 function App() {
   return (

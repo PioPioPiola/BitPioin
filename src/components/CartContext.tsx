@@ -8,12 +8,12 @@ interface ContextoCarritoType {
 }
 
 interface ProveedorProiedades {
-  hijo: ReactNode;
+  children: ReactNode;
 }
 
 const ContextoCarrito = createContext<ContextoCarritoType | undefined>(undefined);
 
-export const ProveedorCarrito = ({ hijo }: ProveedorProiedades) => {
+export const ProveedorCarrito = ({ children }: ProveedorProiedades) => {
     const [carrito, setCarrito] = useState<ItemCarrito[]>([]);
 
     const añadirAlCarrito = (producto: Producto) => {
@@ -36,7 +36,7 @@ export const ProveedorCarrito = ({ hijo }: ProveedorProiedades) => {
 
     return (
         <ContextoCarrito.Provider value={{ carrito, añadirAlCarrito, limpiarCarrito }}>
-            {hijo}
+            {children}
         </ContextoCarrito.Provider>
     );
 };

@@ -29,3 +29,10 @@ export interface Transaccion {
   total: number;
   fecha: Date;
 }
+
+export interface SaldoActual {
+  saldoBase: number;
+  totalRetiros: number;
+  monedaBase: string;
+  SaldoBTC: number;
+}
