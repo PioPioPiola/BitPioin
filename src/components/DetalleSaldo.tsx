@@ -1,14 +1,18 @@
 import { SaldoActual } from "../types/Interfaces"
+import { useOperaciones } from "./SessionContext"
 
-export function DetalleSaldo(saldoActual: SaldoActual){
+export function DetalleSaldo(){
+
+    const {saldo} = useOperaciones();
     return(
         <>
         <div className="card-conversion saldo-actual-detalle">
-            <div>
-                <span>SALDO EN BITCOIN BTC</span>
-                <span>{saldoActual.SaldoBTC.toFixed(8)} BTC</span>
+            <div className="titulo-bitcoin">
+                <span className="saldo-bitcoin">SALDO EN BITCOIN BTC</span>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/012/619/269/small/bitcoin-icon-in-orange-colors-cryptocurrency-related-image-png.png" alt="" />
             </div>
-            <span>$0 USD | Cash: ${saldoActual.saldoBase.toFixed(3)}{saldoActual.monedaBase.toLocaleString()}</span>
+            <span>{saldo.saldoBTC.toFixed(8)} BTC</span>
+            <span>${saldo.saldoRetirado.toFixed(3)} USD | Cash: ${saldo.saldoBase.toFixed(3)}{saldo.monedaBase.toLocaleString()}</span>
         </div>
         </>
     )

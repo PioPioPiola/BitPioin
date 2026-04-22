@@ -5,7 +5,7 @@ import { Login } from "./components/Login";
 import { ToDo } from "./components/ToDo.jsx";
 import { Productos } from "./components/Productos";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ProveedorCarrito } from "./components/CartContext.js";
+import { ProveedorCarrito, OperacionesProvider } from "./components/SessionContext.js";
 import { DetalleProducto } from "./components/DetalleProducto.jsx";
 import { VistaSinPermiso } from "./components/VistaSinPermiso.jsx";
 import { VistaCarrito } from "./components/VistaCarrito.js";
@@ -15,6 +15,7 @@ function App() {
   return (
 
     <React.StrictMode>
+    <OperacionesProvider>
     <ProveedorCarrito>
     <BrowserRouter>
     <Navbar/>
@@ -28,6 +29,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </ProveedorCarrito>
+   </OperacionesProvider>
   </React.StrictMode>
   );
 }

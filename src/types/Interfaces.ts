@@ -32,7 +32,18 @@ export interface Transaccion {
 
 export interface SaldoActual {
   saldoBase: number;
-  totalRetiros: number;
+  saldoRetirado: number;
   monedaBase: string;
-  SaldoBTC: number;
+  saldoBTC: number;
+}
+
+export interface RegistroHistorial {
+  id: string;
+  fecha: Date;
+  tipo: 'Compra' | 'Venta';
+  montoInvertido: number;
+  monedaOrigen: 'USD';
+  saldoBTC: number;
+  monedaDestino: 'BTC';
+  precio: number;
 }

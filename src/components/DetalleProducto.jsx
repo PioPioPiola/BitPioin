@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-import { useCarrito } from '../components/CartContext';
+import { useCarrito } from './SessionContext';
 import { Home } from "lucide-react";
 
 export function DetalleProducto (){

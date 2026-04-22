@@ -1,7 +1,7 @@
 import { ShoppingCart } from "lucide-react"
 import { Link } from "react-router-dom";
 import { DetalleProducto } from "./DetalleProducto";
-import { useCarrito } from "./CartContext";
+import { useCarrito } from "./SessionContext";
 import { Producto } from "../types/Interfaces";
 
 export function CardProducto({ producto }: { producto: Producto }) {

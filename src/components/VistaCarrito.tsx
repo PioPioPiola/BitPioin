@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCarrito } from './CartContext';
+import { useCarrito } from './SessionContext';
 import { ItemCarrito } from '../types/Interfaces';
 
 export const VistaCarrito = () => {

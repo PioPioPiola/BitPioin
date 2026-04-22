@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useCarrito } from '../components/CartContext';
+import { useCarrito } from './SessionContext';
 import { ShoppingCart } from 'lucide-react'; 
 import { Home } from 'lucide-react';
 

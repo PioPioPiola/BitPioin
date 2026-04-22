@@ -1,40 +1,46 @@
 import { useState } from "react";
+import { useOperaciones } from "./SessionContext";
 
 interface OperacionMercado {
     tipo: 'Compra' | 'Venta';
     montoDolares: number;
     precioBTC: number;
+    monedaOrigen: 'USD'
 }
 
 export function CuadroConversiones() {
+    const { saldo, ejecutarTransaccion } = useOperaciones();
+    
     const [operacion, setOperacion] = useState<OperacionMercado>({
         tipo: 'Compra',
         montoDolares: 0,
-        precioBTC: 65000 
+        precioBTC: 65000 ,
+        monedaOrigen: 'USD'
     });
 
     const [cash, setCash] = useState<number>(100000);
     const [saldoBTC, setSaldoBTC] = useState<number>(0.07798462);
 
-    const ejecutarOrden = () => {
+    const ejecutarOrden = (tipoAccion: 'Compra' | 'Venta') => {
         const cantidadBTC = operacion.montoDolares / operacion.precioBTC;
 
-        if (operacion.tipo === 'Compra') {
-            if (operacion.montoDolares <= cash) {
-                setCash(previo => previo - operacion.montoDolares);
-                setSaldoBTC(previo => previo + cantidadBTC);
-                // TO DO: agregar el push en el context para el hisdtorial de conversiones
-            } else {
+        if (tipoAccion === 'Compra') {
+            if (operacion.montoDolares > cash) {
                 alert("Fondos insuficientes en USD");
-            }
+            } 
         } else {
-            if (cantidadBTC <= saldoBTC) {
-                setCash(previo => previo + operacion.montoDolares);
-                setSaldoBTC(previo => previo - cantidadBTC);
-            } else {
+            if (cantidadBTC > saldoBTC) {
                 alert("Fondos insuficientes en BTC");
             }
         }
+
+        ejecutarTransaccion({
+            tipo: tipoAccion,
+            montoInvertido: operacion.montoDolares,
+            saldoBTC: cantidadBTC,
+            precio: operacion.precioBTC,
+            monedaOrigen: operacion.monedaOrigen
+        })
     };
 
     return (
@@ -54,28 +60,19 @@ export function CuadroConversiones() {
                     <label>Precio Actual BTC</label>
                     <input 
                         type="text" 
-                        value={`$${operacion.precioBTC.toLocaleString()}`} 
+                        value={`${operacion.precioBTC.toLocaleString()} USD`} 
                         readOnly 
                         style={{ backgroundColor: '#2d2d2d', cursor: 'not-allowed' }}
                     />
                 </div>
-
-                {/* TODO: componente select de Operación */}
-                <div className="full-width">
-                    <label>Operación</label>
-                    <select 
-                        onChange={(e) => setOperacion({...operacion, tipo: e.target.value as 'Compra' | 'Venta'})}
-                    >
-                        <option value="Compra">Comprar Bitcoin</option>
-                        <option value="Venta">Vender Bitcoin</option>
-                    </select>
-                </div>
-
-                <div className="full-width">
-                    <button className="btn-principal" onClick={ejecutarOrden}>
-                        Ejecutar Orden
+                    <button className="btn-principal btn-conversion" onClick={() =>ejecutarOrden('Compra')}>
+                        <span>Comprar</span>
+                        <span>{saldoBTC.toFixed(8)}</span>
                     </button>
-                </div>
+                    <button className="btn-secundary btn-conversion" onClick={() =>ejecutarOrden('Venta')}>
+                        <span>Vender</span>
+                        <span>{saldoBTC.toFixed(8)}</span>
+                    </button>
             </div>
         </section>
     );

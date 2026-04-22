@@ -14,7 +14,7 @@ export function Inicio() {
             <div className='informacion-inicio'>
                 <main>
                     <VideoInicial />
-                    <DetalleSaldo saldoBase={100.000} monedaBase={"USD"} SaldoBTC={0.07798462}/>
+                    <DetalleSaldo />
                     <section className='informacion-conversiones'>
                         <CuadroConversiones/>
                         <Historico />
