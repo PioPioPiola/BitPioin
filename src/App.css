@@ -110,6 +110,11 @@ article, .card-conversion, .elemento-twit {
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
+.card-conversion{
+  max-height: 350px;
+  overflow: hidden;
+}
+
 .informacion-conversiones{
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -184,7 +189,7 @@ button:hover {
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;
-  width: 150vh;
+  width: 155vh;
   max-height: 150px;
   overflow:hidden;
 }
@@ -457,7 +462,7 @@ button:hover {
   border-radius: 8px;
 }
 
-#historico-conversiones{
+#historico-conversiones, #historico-conversiones-completo{
   text-align: left;
   width: 100%;
   border-collapse: collapse;
@@ -465,7 +470,7 @@ button:hover {
   margin-bottom: 10px;
 }
 
-#historico-conversiones td{
+#historico-conversiones td,  #historico-conversiones-completo td{
   padding: 8px 5px;
   border-bottom: 1px solid #ccc;
 }
@@ -654,4 +659,48 @@ button:hover {
 .btn-soporte:hover {
     background: var(--oro);
     color: #000;
+}
+
+.btn-agregar-comentario{
+  width: 12%;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.caja-texto{
+  height: 100px;
+  font-family: 'Segoe UI';
+}
+
+.titulo-historico-completo{
+  color: var(--oro);
+}
+
+.contenedor-historico-completo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180vh;;
+}
+
+.contenedor-historico-completo article{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c041b;
+  border-radius: 10px;
+  padding: 50px 100px;
+  color:#f9f6f6;
+  border-top: solid 5px #f2a900;
+  border-left: solid 5px #b68a23;
+  width: 170vh;
+  height: 80vh;
+  margin-left: 60px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3)
+}
+
+.btn-login{
+  color: white;
 }

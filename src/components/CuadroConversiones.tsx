@@ -44,7 +44,7 @@ export function CuadroConversiones() {
     };
 
     return (
-        <section className="card-conversion">
+        <section className="card-conversion" id="conversiones">
             <h2>Operar Mercado</h2>
             <div className="formulario-grid">
                 <div className="full-width">

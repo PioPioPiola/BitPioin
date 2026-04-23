@@ -21,9 +21,7 @@ export function Comentarios(){
             </label>
             <textarea value={text} onChange={(e) => setText(e.target.value) }className="caja-texto" placeholder='Escribir algo aquí...' ></textarea>
             </div>
-            <span id='contador-caracteres'>{text.length}</span>
-            <button className="btn-principal" type="button" disabled={esInvalido} onClick={manejarEnvio}>Añadir comentario</button>
-            <a ></a>
+            <button className="btn-principal btn-agregar-comentario" type="button" disabled={esInvalido} onClick={manejarEnvio}>Añadir comentario</button>
         </form>
         <ul className='espacio-twits'>
             {contenido.map((twit, index) => (

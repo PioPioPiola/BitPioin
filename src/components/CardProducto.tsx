@@ -8,9 +8,9 @@ export function CardProducto({ producto }: { producto: Producto }) {
     const { añadirAlCarrito } = useCarrito();
     return(
         <div className="card-producto">
-            <img src={producto.image} alt={producto.title} className="imagen-producto"></img>
-            <h2 className="titulo-card-producto">{producto.title}</h2>
-            <span className="precio-card-producto">{producto.price} USD</span>
+            <img src={producto.image} alt={producto.name} className="imagen-producto"></img>
+            <h2 className="titulo-card-producto">{producto.name}</h2>
+            <span className="precio-card-producto">{producto.current_price} USD</span>
             <Link className="boton-ver-mas" to={`/Productos/${producto.id}`}>Ver más</Link>
             <div className="carrito-card-productos">
                 <input type="number" />

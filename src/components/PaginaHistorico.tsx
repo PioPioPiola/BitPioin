@@ -1,17 +1,16 @@
 import { useOperaciones } from "./SessionContext";
-import { useMemo } from "react";
+import { Link } from "react-router-dom";
+import { Home } from "lucide-react";
 
-export function Historico() {
+export function PaginaHistorico() {
     const { historial } = useOperaciones();
 
-    const registrosVisibles = useMemo(() => {
-        return [...historial].slice(-5).reverse();
-    }, [historial]);
-
     return (
-        <article>
-            <h2 className="titulo-article">Histórico de Conversiones</h2>
-            <table id="historico-conversiones">
+        <div className="contenedor-historico-completo">
+            <div className="boton-volver"><Link to="/"><Home/> Volver al inicio</Link></div>
+            <article>
+            <h2 className="titulo-historico-completo">Histórico de Conversiones</h2>
+            <table id="historico-conversiones-completo">
                 <thead>
                     <tr>
                         <th>Fecha</th>
@@ -23,14 +22,14 @@ export function Historico() {
                     </tr>
                 </thead>
                 <tbody>
-                    {registrosVisibles.length === 0 ? (
+                    {historial.length === 0 ? (
                         <tr>
                             <td colSpan={6} style={{ textAlign: 'center', padding: '20px' }}>
                                 No hay operaciones registradas.
                             </td>
                         </tr>
                     ) : (
-                        registrosVisibles.map((operacion) => (
+                        historial.map((operacion) => (
                             <tr key={operacion.id}>
                                 <td>{operacion.fecha.toLocaleDateString()} {operacion.fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                                 <td>{operacion.tipo === 'Compra' ? 'USD' : 'BTC'}</td>
@@ -46,5 +45,6 @@ export function Historico() {
                 </tbody>
             </table>
         </article>
+        </div>
     );
 }

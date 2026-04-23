@@ -6,7 +6,7 @@ import { Producto } from "../types/Interfaces";
 
 export function Productos(){
 
-    const {data: listaProductos, loading, error } = useFetch<Producto[]>("https://fakestoreapi.com/products");
+    const {data: listaProductos, loading, error } = useFetch<Producto[]>("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=etf");
 
     return(
         <div className="productos">

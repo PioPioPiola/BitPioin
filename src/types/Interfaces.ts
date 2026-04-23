@@ -5,10 +5,9 @@ export interface Categoria {
 
 export interface Producto {
     id: number;
-    title: string;      
-    price: number;       
-    description: string;
-    category: string;    
+    symbol: string;
+    name: string;      
+    current_price: number;         
     image: string;       
 };
 
