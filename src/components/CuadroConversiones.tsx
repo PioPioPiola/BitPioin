@@ -10,11 +10,11 @@ interface OperacionMercado {
 
 export function CuadroConversiones() {
     const { saldo, ejecutarTransaccion } = useOperaciones();
-    
+
     const [operacion, setOperacion] = useState<OperacionMercado>({
         tipo: 'Compra',
         montoDolares: 0,
-        precioBTC: 65000 ,
+        precioBTC: 65000,
         monedaOrigen: 'USD'
     });
 
@@ -27,7 +27,7 @@ export function CuadroConversiones() {
         if (tipoAccion === 'Compra') {
             if (operacion.montoDolares > cash) {
                 alert("Fondos insuficientes en USD");
-            } 
+            }
         } else {
             if (cantidadBTC > saldoBTC) {
                 alert("Fondos insuficientes en BTC");
@@ -45,34 +45,35 @@ export function CuadroConversiones() {
 
     return (
         <section className="card-conversion" id="conversiones">
+
             <h2>Operar Mercado</h2>
             <div className="formulario-grid">
                 <div className="full-width">
                     <label>Inversión (USD)</label>
-                    <input 
-                        type="number" 
-                        placeholder="Monto en Dólares" 
-                        onChange={(e) => setOperacion({...operacion, montoDolares: Number(e.target.value)})} 
+                    <input
+                        type="number"
+                        placeholder="Monto en Dólares"
+                        onChange={(e) => setOperacion({ ...operacion, montoDolares: Number(e.target.value) })}
                     />
                 </div>
 
                 <div className="full-width">
                     <label>Precio Actual BTC</label>
-                    <input 
-                        type="text" 
-                        value={`${operacion.precioBTC.toLocaleString()} USD`} 
-                        readOnly 
+                    <input
+                        type="text"
+                        value={`${operacion.precioBTC.toLocaleString()} USD`}
+                        readOnly
                         style={{ backgroundColor: '#2d2d2d', cursor: 'not-allowed' }}
                     />
                 </div>
-                    <button className="btn-principal btn-conversion" onClick={() =>ejecutarOrden('Compra')}>
-                        <span>Comprar</span>
-                        <span>{saldoBTC.toFixed(8)}</span>
-                    </button>
-                    <button className="btn-secundary btn-conversion" onClick={() =>ejecutarOrden('Venta')}>
-                        <span>Vender</span>
-                        <span>{saldoBTC.toFixed(8)}</span>
-                    </button>
+                <button className="btn-principal btn-conversion" onClick={() => ejecutarOrden('Compra')}>
+                    <span>Comprar</span>
+                    <span>{saldoBTC.toFixed(8)}</span>
+                </button>
+                <button className="btn-secundary btn-conversion" onClick={() => ejecutarOrden('Venta')}>
+                    <span>Vender</span>
+                    <span>{saldoBTC.toFixed(8)}</span>
+                </button>
             </div>
         </section>
     );

@@ -11,28 +11,30 @@ import { VistaSinPermiso } from "./components/VistaSinPermiso.jsx";
 import { VistaCarrito } from "./components/VistaCarrito.js";
 import { Navbar } from "./components/Navbar.jsx";
 import { PaginaHistorico } from "./components/PaginaHistorico";
+import { Perfil } from "./components/Perfil";
 
 function App() {
   return (
 
     <React.StrictMode>
-    <OperacionesProvider>
-    <ProveedorCarrito>
-    <BrowserRouter>
-    <Navbar/>
-        <Routes>
-          <Route path="/Login" element={<Login />} />
-          <Route path="/" element={<Inicio />} />
-          <Route path="/Productos" element={<VistaSinPermiso isLogged={true} vista={<Productos />} vistaVolver={<Inicio />}></VistaSinPermiso>} />
-          <Route path="/Productos/:id" element={<VistaSinPermiso isLogged={true} vista={<DetalleProducto />} vistaVolver={<Productos />}></VistaSinPermiso>} />
-          <Route path="/carrito" element={<VistaCarrito />} />
-          <Route path="/Historico" element={<PaginaHistorico />} />
-          <Route path="" element={<p>Pagina no encontrada</p>}/>
-        </Routes>
-      </BrowserRouter>
-    </ProveedorCarrito>
-   </OperacionesProvider>
-  </React.StrictMode>
+      <OperacionesProvider>
+        <ProveedorCarrito>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/Profile" element={<Perfil />} />
+              <Route path="/Productos" element={<VistaSinPermiso isLogged={true} vista={<Productos />} vistaVolver={<Inicio />}></VistaSinPermiso>} />
+              <Route path="/Productos/:id" element={<VistaSinPermiso isLogged={true} vista={<DetalleProducto />} vistaVolver={<Productos />}></VistaSinPermiso>} />
+              <Route path="/carrito" element={<VistaCarrito />} />
+              <Route path="/Historico" element={<PaginaHistorico />} />
+              <Route path="" element={<p>Pagina no encontrada</p>} />
+            </Routes>
+          </BrowserRouter>
+        </ProveedorCarrito>
+      </OperacionesProvider>
+    </React.StrictMode>
   );
 }
 

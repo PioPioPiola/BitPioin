@@ -4,11 +4,11 @@ export interface Categoria {
 }
 
 export interface Producto {
-    id: number;
-    symbol: string;
-    name: string;      
-    current_price: number;         
-    image: string;       
+  id: number;
+  symbol: string;
+  name: string;
+  current_price: number;
+  image: string;
 };
 
 export interface ItemCarrito extends Producto {
@@ -20,6 +20,15 @@ export interface Usuario {
   nombre: string;
   email: string;
   roles: string[];
+}
+
+export interface UsuarioPersona {
+  id: string;
+  nombre: string;
+  cantidad: number;
+  urlImagen: string | null;
+  fechaCreacion: Date;
+  ultimaModificacion: Date;
 }
 
 export interface Transaccion {
@@ -45,4 +54,11 @@ export interface RegistroHistorial {
   saldoBTC: number;
   monedaDestino: 'BTC';
   precio: number;
+}
+
+export interface RegistroHistorialData {
+  id: string;
+  fecha: Date;
+  crypto: 'BTC';
+  monto: number;
 }
