@@ -1,30 +1,30 @@
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import type { UsuarioPersona } from '../types/Interfaces'
+import type { assets } from '../types/Interfaces'
 
 interface AssetFormProps {
-    editingItem: UsuarioPersona | null;
-    assets: UsuarioPersona[];
-    onSave: (data: Omit<UsuarioPersona, 'id' | 'fechaCreacion' | 'ultimaModificacion'>) => void;
+    editingItem: assets | null;
+    assets: assets[];
+    onSave: (data: Omit<assets, 'id' | 'fechaCreacion' | 'ultimaModificacion'>) => void;
     onCancel: () => void;
-    handleEdit: (item: UsuarioPersona) => void;
+    handleEdit: (item: assets) => void;
     setDeletingId: (id: string) => void;
 }
 
 export const AssetForm = ({ editingItem, assets, onSave, onCancel, handleEdit, setDeletingId }: AssetFormProps) => {
-    const { register, reset, handleSubmit } = useForm<Omit<UsuarioPersona, 'id' | 'fechaCreacion' | 'ultimaModificacion'>>({
-        defaultValues: { nombre: '', cantidad: 0 }
+    const { register, reset, handleSubmit } = useForm<Omit<assets, 'id'>>({
+        defaultValues: { name: '' }
     })
 
     useEffect(() => {
         if (editingItem) {
             reset(editingItem);
         } else {
-            reset({ nombre: '', cantidad: 0 });
+            reset({ name: '' });
         }
     }, [editingItem, reset]);
 
-    const onSubmit = (data: Omit<UsuarioPersona, 'id' | 'fechaCreacion' | 'ultimaModificacion'>) => {
+    const onSubmit = (data: Omit<assets, 'id'>) => {
         onSave(data);
     };
 
@@ -35,14 +35,7 @@ export const AssetForm = ({ editingItem, assets, onSave, onCancel, handleEdit, s
                 <div>
                     <label>Nombre</label>
                     <input
-                        {...register('nombre', { required: true })}
-                    />
-                </div>
-                <div>
-                    <label>Cantidad</label>
-                    <input
-                        type="number"
-                        {...register('cantidad', { required: true, min: 0 })}
+                        {...register('name', { required: true })}
                     />
                 </div>
                 <div>
@@ -63,8 +56,7 @@ export const AssetForm = ({ editingItem, assets, onSave, onCancel, handleEdit, s
                 {assets.map((item) => (
                     <div key={item.id}>
                         <div>
-                            <p>{item.nombre}</p>
-                            <p>Cantidad: {item.cantidad}</p>
+                            <p>{item.name}</p>
                         </div>
                         <div>
                             <button

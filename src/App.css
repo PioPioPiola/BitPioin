@@ -704,3 +704,82 @@ button:hover {
 .btn-login{
   color: white;
 }
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  background: #151b2d;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--gris-borde);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal h3 {
+  color: var(--oro);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.modal p {
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-confirm {
+  background-color: #e63946 !important;
+  color: white !important;
+  transition: transform 0.2s, background-color 0.2s !important;
+}
+
+.btn-confirm:hover {
+  background-color: #d62828 !important;
+  transform: translateY(-2px);
+}
+
+.btn-confirm:active {
+  transform: translateY(0);
+}
+
+.btn-cancel {
+  background-color: #2b2d42 !important;
+  color: white !important;
+  transition: transform 0.2s, background-color 0.2s !important;
+}
+
+.btn-cancel:hover {
+  background-color: #3d405b !important;
+  transform: translateY(-2px);
+}
+
+.btn-cancel:active {
+  transform: translateY(0);
+}

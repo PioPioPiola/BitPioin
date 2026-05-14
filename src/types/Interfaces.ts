@@ -22,13 +22,12 @@ export interface Usuario {
   roles: string[];
 }
 
-export interface UsuarioPersona {
+export interface assets {
   id: string;
-  nombre: string;
-  cantidad: number;
-  urlImagen: string | null;
-  fechaCreacion: Date;
-  ultimaModificacion: Date;
+  name: string;
+  symbol: string;
+  price: number;
+  created_at?: Date;
 }
 
 export interface Transaccion {
